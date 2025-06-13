@@ -3,17 +3,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class PIMPage:
-    # Locators
-    pim_menu = (By.LINK_TEXT, "PIM")
-    add_button = (By.XPATH, "//button[contains(., 'Add')]")
-    first_name_input = (By.NAME, "firstName")
-    middle_name_input = (By.NAME, "middleName")
-    last_name_input = (By.NAME, "lastName")
-    employee_id_input = (By.XPATH, "//label[text()='Employee Id']/following::input[1]")
-    save_button = (By.XPATH, "//button[contains(., 'Save')]")
-    search_input = (By.XPATH, "//input[@placeholder='Type for hints...']")
-    search_button = (By.XPATH, "//button[@type='submit']")
-    employee_table = (By.XPATH, "//div[@class='oxd-table-body']")
+    PIM_MENU = (By.LINK_TEXT, "PIM")
+    ADD_BUTTON = (By.XPATH, "//button[contains(., 'Add')]")
+    FIRST_NAME_INPUT = (By.NAME, "firstName")
+    LAST_NAME_INPUT = (By.NAME, "lastName")
+    SAVE_BUTTON = (By.CSS_SELECTOR, "button.oxd-button.oxd-button--medium.oxd-button--secondary.orangehrm-left-space[type='submit']")
+    PROFILE_FIRST_NAME_INPUT = (By.CSS_SELECTOR, "input.orangehrm-firstname")
+    PROFILE_LAST_NAME_INPUT = (By.CSS_SELECTOR, "input.orangehrm-lastname")
 
     def __init__(self, driver):
         self.driver = driver
@@ -26,22 +22,26 @@ class PIMPage:
         self.wait.until(EC.element_to_be_clickable(locator)).click()
 
     def navigate_to_pim(self):
-        self._click(self.pim_menu)
+        self._click(self.PIM_MENU)
 
     def click_add_employee(self):
-        self._click(self.add_button)
+        self._click(self.ADD_BUTTON)
 
-    def add_employee(self, first_name, last_name, employee_id, middle_name=""):
-        self._find(self.first_name_input).send_keys(first_name)
-        if middle_name:
-            self._find(self.middle_name_input).send_keys(middle_name)
-        self._find(self.last_name_input).send_keys(last_name)
-        self._find(self.employee_id_input).clear()  # limpar para garantir que o campo está vazio
-        self._find(self.employee_id_input).send_keys(employee_id)
-        self._click(self.save_button)
+    def add_employee(self, first_name, last_name):
+        first_name_field = self._find(self.FIRST_NAME_INPUT)
+        first_name_field.clear()
+        first_name_field.send_keys(first_name)
 
-    def search_employee(self, name):
-        search = self._find(self.search_input)
-        search.clear()
-        search.send_keys(name)
-        self._click(self.search_button)
+        last_name_field = self._find(self.LAST_NAME_INPUT)
+        last_name_field.clear()
+        last_name_field.send_keys(last_name)
+
+        self._click(self.SAVE_BUTTON)
+
+    def get_profile_first_name(self):
+        element = self._find(self.PROFILE_FIRST_NAME_INPUT)
+        return element.get_attribute("value").strip()
+
+    def get_profile_last_name(self):
+        element = self._find(self.PROFILE_LAST_NAME_INPUT)
+        return element.get_attribute("value").strip()
