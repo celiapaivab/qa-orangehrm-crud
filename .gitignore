@@ -1,0 +1,28 @@
+# Ambiente virtual
+venv/
+.venv/
+
+# Arquivos de cache do Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Logs
+*.log
+
+# Arquivos do Pytest
+.pytest_cache/
+
+# Capturas de tela ou relatórios (caso não queira versionar)
+screenshots/
+reports/
+
+# Configurações do IDE
+.vscode/
+.idea/
+
+# Arquivos temporários
+*.swp
+*.swo
+*.bak
+*.tmp
