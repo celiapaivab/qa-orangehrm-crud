@@ -69,12 +69,16 @@ pytest tests/
 - Estrutura modular com Page Object Model aplicada.  
 - Pipeline configurado no **GitHub Actions** para executar os testes automaticamente a cada *push*.
 
+---
+
 ## 📚 Aprendizados
 
 - Implementação prática de testes automatizados com **Selenium** e **Pytest**.  
 - Estruturação de testes para diferentes fluxos de CRUD de funcionários.  
 - Integração dos testes automatizados em um pipeline **CI/CD** no **GitHub Actions**.  
 - Boas práticas de organização e reutilização de código com o padrão **Page Object Model**.
+
+---
 
 ## 💡 Melhorias Futuras
 
