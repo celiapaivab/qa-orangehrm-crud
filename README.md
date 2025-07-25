@@ -3,8 +3,10 @@
 ![QA](https://img.shields.io/badge/Testes-Automação-blue)
 ![Ferramenta](https://img.shields.io/badge/Selenium-Python-green)
 ![Tipo de Teste](https://img.shields.io/badge/Testes-Funcional-lightgrey)
-![Python application](https://github.com/celiapaivab/qa-orangehrm-crud-
-![Status](https://github.com/celiapaivab/qa-orangehrm-crud-internet/actions/workflows/python-app.yml/badge.svg?branch=main)
+[![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)](https://github.com/celiapaivab/qa-orangehrm-crud)
+[![Status](https://github.com/celiapaivab/qa-orangehrm-crud/actions/workflows/python-app.yml/badge.svg?branch=main)](https://github.com/celiapaivab/qa-orangehrm-crud/actions/workflows/python-app.yml)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/celia-bruno)
+
 
 ---
 
